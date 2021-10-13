@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from wakeonlan import send_magic_packet
 
 # systems
-dadpc1 = {'name':'dad PC 1','mac_address':'74:27:ea:01:cb:69'}
 dadpc2 = {'name':'dad PC 2','mac_address':'3c:1e:04:ea:a2:2e'}
 def wake_up(system):
     send_magic_packet(system['mac_address'])
@@ -24,7 +23,9 @@ def dadpc2():
 
 @app.route('/WOL/')
 def wol():
+    dadpc1 = {'name':'dad PC 1','mac_address':'74:27:ea:01:cb:69'}
     wake_up(dadpc1)
+    return 'Dad PC turned on!'
 
 if __name__=='__main__':
     app.run(debug=True)
