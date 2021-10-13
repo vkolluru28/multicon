@@ -1,10 +1,15 @@
 from flask import Flask, render_template
 from wakeonlan import send_magic_packet
+from subprocess import check_output
 
 # systems
 dadpc2 = {'name':'dad PC 2','mac_address':'3c:1e:04:ea:a2:2e'}
 def wake_up(system):
     send_magic_packet(system['mac_address'])
+
+def get_sshtop():
+    stdout = check_output(['./script.sh']).decode('utf-8')
+    return stdout
 
 # web interface
 app = Flask(__name__)
@@ -29,8 +34,7 @@ def wol():
 
 @app.route('/dadpc1bash/')
 def dadpc1bash():
-    #sshpass -p swethakvs ssh swetha@192.168.1.5 "top -b -n 1" > top_test
-    return render_template('index_3.html')
+    return '<pre>'+get_sshtop()+'</pre>'
 
 if __name__=='__main__':
     app.run(debug=True)
