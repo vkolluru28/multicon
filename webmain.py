@@ -29,6 +29,7 @@ def wol():
 
 @app.route('/dadpc1bash/')
 def dadpc1bash():
+    #sshpass -p swethakvs ssh swetha@192.168.1.5 "top -b -n 1" > top_test
     return render_template('index_3.html')
 
 if __name__=='__main__':
