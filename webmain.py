@@ -27,6 +27,10 @@ def wol():
     wake_up(dadpc1)
     return 'Dad PC turned on!'
 
+@app.route('/dadpc1bash/')
+def dadpc1bash():
+    return render_template('index_3.html')
+
 if __name__=='__main__':
     app.run(debug=True)
 
