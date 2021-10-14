@@ -5,8 +5,8 @@ from tkinter import *
 
 # systems
 
-dadpc1 = {'name':'dad PC 1','mac_address':'74:27:ea:01:cb:69'}
-dadpc2 = {'name':'dad PC 2','mac_address':'3c:1e:04:ea:a2:2e'}
+dadpc1 = {'name':'PC 1','mac_address':'74:27:ea:01:cb:69'}
+dadpc2 = {'name':'PC 2','mac_address':'3c:1e:04:ea:a2:2e'}
 
 # tkinter interface
 root = Tk()
@@ -23,8 +23,8 @@ def wake_up(system):
     console_row.grid(row=2,column=1,rowspan=2)
 
 # make buttons
-button_1 = Button(root,text='Dad pc 1', padx=60,pady=20,border=10,command=lambda: wake_up(dadpc1))
-button_2 = Button(root,text='Dad pc 2', padx=60,pady=20,border=10,command=lambda: wake_up(dadpc2))
+button_1 = Button(root,text=' pc 1', padx=60,pady=20,border=10,command=lambda: wake_up(dadpc1))
+button_2 = Button(root,text=' pc 2', padx=60,pady=20,border=10,command=lambda: wake_up(dadpc2))
 
 # position objects
 button_1.grid(row=2,column=0)
